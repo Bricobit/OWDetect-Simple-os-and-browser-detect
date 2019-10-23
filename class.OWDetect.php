@@ -1,11 +1,18 @@
 <?php
     /**
      * Os && Browser Detect
+     * Javier Vicente Medina
+     *      Bricobit
      */
     class OWDetect {
-        public function __construct() {/*Not use*/}
+
+        public $ua;
+
+        public function __construct() {
+           $this->ua =  isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "unknown"; //Sample ua: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0';
+        }
+
         public function get($t="OS"){//"OS" or "BROWSER"
-            if(isset($_SERVER['HTTP_USER_AGENT'])) $ua = $_SERVER['HTTP_USER_AGENT']; else return "unknown";
             $OB = $t == "OS" ? array(['Windows NT 10.0','Windows 10'       ],['Windows NT 6.3','Windows 8.1'   ],['Windows NT 6.2','Windows 8'        ],
                                      ['Windows NT 6.1' ,'Windows 7'        ],['Windows NT 6.0','Windows Vista' ],['Windows NT 5.1','Windows XP'       ],
                                      ['Windows NT 5.2' ,'Windows 2003'     ],['Windows NT 5.0','Windows 2000'  ],['Windows ME'    ,'Windows ME'       ],
@@ -30,7 +37,7 @@
                                      ['Links'          ,'Links'            ],['Lynx'          ,'Lynx'          ],['w3m'           ,'w3m'              ]);
                 $o = count($OB);
                 for($n=0;$n<$o;$n++){
-                    if(strpos(' '.$ua, $OB[$n][0])){
+                    if(strpos(' '.$this->ua, $OB[$n][0])){
                         return $OB[$n][1];
                     }
                 }
