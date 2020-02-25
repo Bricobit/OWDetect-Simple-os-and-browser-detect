@@ -2,9 +2,10 @@
     /**
      * Os && Browser Detect
      * Javier Vicente Medina
-     *      Bricobit
+     * giskard2010@hotmail.com
+     * jvm.bricobit.com
      */
-    class OWDetect {
+    class OBDetect {
 
         public $ua;
 
@@ -46,9 +47,9 @@
     }
     /*
       Use:
-      include(class.OWDetect.php");
-      $owd = new OWDetect();
-      echo "The OS is: ".$owd->get("OS");
-      echo "The Browser is: ".$owd->get("BROWSER");
+      include(class.OBDetect.php");
+      $obd = new OBDetect();
+      echo "The OS is: ".$obd->get("OS");
+      echo "The Browser is: ".$obd->get("BROWSER");
     */
 ?>
